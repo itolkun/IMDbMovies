@@ -56,15 +56,71 @@
 		83F2F380291A52AB00788398 /* IMDbMovies */ = {
 			isa = PBXGroup;
 			children = (
-				83F2F381291A52AB00788398 /* AppDelegate.swift */,
-				83F2F383291A52AB00788398 /* SceneDelegate.swift */,
-				83F2F385291A52AB00788398 /* ViewController.swift */,
-				83F2F387291A52AB00788398 /* Main.storyboard */,
-				83F2F38A291A52AB00788398 /* Assets.xcassets */,
-				83F2F38C291A52AB00788398 /* LaunchScreen.storyboard */,
-				83F2F38F291A52AB00788398 /* Info.plist */,
+				83F2F397291A52FE00788398 /* App */,
+				83F2F39C291A534400788398 /* Services */,
+				83F2F39A291A532800788398 /* Models */,
+				83F2F39B291A533900788398 /* Views */,
+				83F2F398291A530B00788398 /* ViewControllers */,
+				83F2F396291A52EF00788398 /* Storyboard */,
+				83F2F395291A52CE00788398 /* Resources */,
 			);
 			path = IMDbMovies;
+			sourceTree = "<group>";
+		};
+		83F2F395291A52CE00788398 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				83F2F38A291A52AB00788398 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		83F2F396291A52EF00788398 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				83F2F387291A52AB00788398 /* Main.storyboard */,
+				83F2F38C291A52AB00788398 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		83F2F397291A52FE00788398 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				83F2F381291A52AB00788398 /* AppDelegate.swift */,
+				83F2F383291A52AB00788398 /* SceneDelegate.swift */,
+				83F2F38F291A52AB00788398 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		83F2F398291A530B00788398 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				83F2F385291A52AB00788398 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		83F2F39A291A532800788398 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		83F2F39B291A533900788398 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		83F2F39C291A534400788398 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,12 +344,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = IMDbMovies/Info.plist;
+				INFOPLIST_FILE = IMDbMovies/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,9 +358,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.swiftbook.IMDbMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,12 +375,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = IMDbMovies/Info.plist;
+				INFOPLIST_FILE = IMDbMovies/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -328,9 +389,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.swiftbook.IMDbMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
