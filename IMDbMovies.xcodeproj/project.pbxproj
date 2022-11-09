@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83C3859C291BC02C0053BFC8 /* UserAddedMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3859B291BC02C0053BFC8 /* UserAddedMovies.swift */; };
 		83C84354291AAF49006DB574 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C84353291AAF49006DB574 /* NetworkManager.swift */; };
 		83F2F382291A52AB00788398 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F2F381291A52AB00788398 /* AppDelegate.swift */; };
 		83F2F384291A52AB00788398 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F2F383291A52AB00788398 /* SceneDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83C3859B291BC02C0053BFC8 /* UserAddedMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAddedMovies.swift; sourceTree = "<group>"; };
 		83C84353291AAF49006DB574 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		83F2F37E291A52AB00788398 /* IMDbMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMDbMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F2F381291A52AB00788398 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				83F2F3A1291A708900788398 /* MovieCell.swift */,
+				83C3859B291BC02C0053BFC8 /* UserAddedMovies.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				83F2F39E291A54F400788398 /* Movie.swift in Sources */,
 				83F2F3A2291A708900788398 /* MovieCell.swift in Sources */,
 				83C84354291AAF49006DB574 /* NetworkManager.swift in Sources */,
+				83C3859C291BC02C0053BFC8 /* UserAddedMovies.swift in Sources */,
 				83F2F382291A52AB00788398 /* AppDelegate.swift in Sources */,
 				83F2F384291A52AB00788398 /* SceneDelegate.swift in Sources */,
 				83F2F3A0291A667900788398 /* MainViewController.swift in Sources */,

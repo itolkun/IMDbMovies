@@ -18,17 +18,12 @@ class MainViewController: UICollectionViewController {
 
     }
 
-    /*
-    // MARK: - Navigation
+    
+//     MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
-    // MARK: UICollectionViewDataSource
+//     MARK: UICollectionViewDataSource
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -42,6 +37,17 @@ class MainViewController: UICollectionViewController {
         cell.configure(with: movie)
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let movie = movies[indexPath.item]
+//        performSegue(withIdentifier: "movieInfo", sender: nil)
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//       guard let _ = segue.destination as? MovieInfoViewController else { return }
+//
+//
+//    }
 
     
 }
@@ -55,7 +61,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 extension MainViewController {
     func fetchMovies() {
         
-        NetworkManager.shared.fetchMovies(by: "avengers") {
+        NetworkManager.shared.fetchMovies(by: "christmas") {
             [] result in
             switch result {
             case .success(let searchResult):
