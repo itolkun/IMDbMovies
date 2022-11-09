@@ -44,8 +44,8 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Label Not Yet Available" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzk-LP-jRi">
-                                            <rect key="frame" x="10" y="186" width="218" height="16"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <rect key="frame" x="10" y="186" width="218" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.89822048610000005" green="0.89822048610000005" blue="0.89822048610000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -75,7 +75,6 @@
                                 <connections>
                                     <outlet property="movieImage" destination="aod-63-cdp" id="KPa-wI-zws"/>
                                     <outlet property="movieNamelabel" destination="uzk-LP-jRi" id="f2K-xX-tyU"/>
-                                    <segue destination="weF-1o-Y0v" kind="show" identifier="movieInfo" id="jJf-xn-rjS"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -89,7 +88,12 @@
                             <outlet property="delegate" destination="Ur2-So-OR9" id="KZZ-FY-iE7"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="IMDb Movies" id="j0w-Vt-SwH"/>
+                    <navigationItem key="navigationItem" title="IMDb Movies" id="j0w-Vt-SwH">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="pdJ-lZ-dBi"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="weF-1o-Y0v" kind="show" identifier="movieInfo" id="SJD-Re-OUB"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5bS-ah-AJQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,8 +160,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW MOVIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM1-lp-BCK">
-                                <rect key="frame" x="25" y="273" width="123.5" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WINTER IS COMING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM1-lp-BCK">
+                                <rect key="frame" x="25" y="273" width="181.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" red="0.89822048611111116" green="0.89822048611111116" blue="0.89822048611111116" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -166,11 +170,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="233"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fm-Lz-BQd">
-                                <rect key="frame" x="16" y="190" width="72" height="35"/>
+                                <rect key="frame" x="111" y="176" width="98.5" height="35"/>
                                 <color key="backgroundColor" red="0.34870186241313128" green="0.34870186241313128" blue="0.34870186241313128" alpha="0.35427876655629148" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Trailer">
+                                <buttonConfiguration key="configuration" style="tinted" title="▶️ Trailer">
                                     <color key="baseBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
@@ -187,15 +191,14 @@
                             <constraint firstItem="FMk-YJ-0Bm" firstAttribute="top" secondItem="wCb-rM-lQv" secondAttribute="top" id="7dW-EA-x8d"/>
                             <constraint firstItem="oa5-Xb-2mQ" firstAttribute="leading" secondItem="pdc-nG-uXa" secondAttribute="leading" constant="20" id="7kj-Da-cyH"/>
                             <constraint firstItem="oa5-Xb-2mQ" firstAttribute="top" secondItem="dM1-lp-BCK" secondAttribute="bottom" constant="8" id="AQj-F3-cm9"/>
-                            <constraint firstItem="8Fm-Lz-BQd" firstAttribute="leading" secondItem="pdc-nG-uXa" secondAttribute="leading" constant="16" id="CzX-w3-uZh"/>
+                            <constraint firstItem="dM1-lp-BCK" firstAttribute="top" secondItem="8Fm-Lz-BQd" secondAttribute="bottom" constant="62" id="HQZ-yS-rlV"/>
                             <constraint firstItem="FMk-YJ-0Bm" firstAttribute="leading" secondItem="pdc-nG-uXa" secondAttribute="leading" id="ILa-mD-vHP"/>
-                            <constraint firstItem="dM1-lp-BCK" firstAttribute="top" secondItem="8Fm-Lz-BQd" secondAttribute="bottom" constant="48" id="ND4-1N-Z8k"/>
                             <constraint firstItem="pdc-nG-uXa" firstAttribute="bottom" secondItem="oa5-Xb-2mQ" secondAttribute="bottom" constant="70" id="Spp-6Q-b7N"/>
                             <constraint firstItem="dM1-lp-BCK" firstAttribute="top" secondItem="FMk-YJ-0Bm" secondAttribute="bottom" constant="40" id="eIn-WL-Hq5"/>
                             <constraint firstItem="pdc-nG-uXa" firstAttribute="trailing" secondItem="FMk-YJ-0Bm" secondAttribute="trailing" id="f1m-6e-u43"/>
+                            <constraint firstItem="8Fm-Lz-BQd" firstAttribute="centerX" secondItem="wCb-rM-lQv" secondAttribute="centerX" id="mnX-tn-IRJ"/>
                             <constraint firstItem="pdc-nG-uXa" firstAttribute="trailing" secondItem="oa5-Xb-2mQ" secondAttribute="trailing" constant="20" id="p9h-qU-lZc"/>
                             <constraint firstItem="pdc-nG-uXa" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dM1-lp-BCK" secondAttribute="trailing" symbolic="YES" id="v6j-Yn-KuX"/>
-                            <constraint firstItem="pdc-nG-uXa" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Fm-Lz-BQd" secondAttribute="trailing" symbolic="YES" id="yIo-Ie-Umn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Goj-CN-HT8"/>

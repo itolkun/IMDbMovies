@@ -7,7 +7,26 @@
 
 import UIKit
 
-class MovieInfoViewController: UIViewController, UICollectionViewDataSource {
+class MovieInfoViewController: UIViewController {
+    
+    @IBOutlet var collectionView: UICollectionView!
+    
+    @IBOutlet var choosenMovieImage: UIImageView!
+    
+    private var movies: [Movie] = []
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionView.dataSource = self
+        fetchMovies()
+        
+    }
+}
+
+
+
+extension MovieInfoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         movies.count
     }
@@ -18,23 +37,8 @@ class MovieInfoViewController: UIViewController, UICollectionViewDataSource {
         cell.configure(with: movie)
         return cell
     }
-    
-
-    @IBOutlet var collectionView: UICollectionView!
-    
-    @IBOutlet var choosenMovieImage: UIImageView!
-    
-    private var movies: [Movie] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.dataSource = self
-        fetchMovies()
-    }
-    
     func fetchMovies() {
-        
-        NetworkManager.shared.fetchMovies(by: "christmas") {
+        NetworkManager.shared.fetchMovies(by: "santa") {
             [] result in
             switch result {
             case .success(let searchResult):
@@ -47,27 +51,7 @@ class MovieInfoViewController: UIViewController, UICollectionViewDataSource {
                 
             }
         }
-
-
-
-
-//extension MovieInfoViewController: UICollectionViewDataSource {
-//        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//            10
-//
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellTwo", for: indexPath) as! UserAddedMovie
-//
-//        //        let movie = movies[indexPath.item]
-//        //        cell.configure(with: movie)
-//        return cell
-//    }
-        
-            
-        }
         
     }
+}
 

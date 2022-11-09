@@ -9,7 +9,7 @@ import UIKit
 
 class UserAddedMovie: UICollectionViewCell {
     
-    @IBOutlet var imageMovie: UIImageView!
+    @IBOutlet var imageMovie: UIImageView! 
     
     func configure(with movie: Movie) {
         imageMovie.image = UIImage(named: "moviePoster")

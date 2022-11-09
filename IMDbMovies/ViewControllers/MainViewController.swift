@@ -10,6 +10,7 @@ import UIKit
 class MainViewController: UICollectionViewController {
     
     private var movies: [Movie] = []
+    var photoThubnail: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +40,15 @@ class MainViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let movie = movies[indexPath.item]
-//        performSegue(withIdentifier: "movieInfo", sender: nil)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MovieCell
+        self.photoThubnail = cell.movieImage
+        performSegue(withIdentifier: "movieInfo", sender: nil)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//       guard let _ = segue.destination as? MovieInfoViewController else { return }
-//
-//
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let movieInfoVC = segue.destination as? MovieInfoViewController
+        movieInfoVC?.choosenMovieImage = self.photoThubnail
+        }
 
     
 }
