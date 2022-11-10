@@ -12,12 +12,14 @@ class MovieInfo: UICollectionViewCell {
     @IBOutlet var imageMovie: UIImageView! 
     
     func configure(with movie: Movie) {
+        imageMovie.image = UIImage(named: "moviePoster")
         NetworkManager.shared.fetchMovieImage(from: movie.poster){ [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.imageMovie.image = UIImage(data: imageData)
-            case .failure(_):
-                self?.imageMovie.image = UIImage(named: "moviePoster")
+            case .failure(let error):
+                print(error)
+                
             }
         }
         
