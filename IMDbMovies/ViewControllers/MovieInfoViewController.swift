@@ -16,7 +16,6 @@ class MovieInfoViewController: UIViewController {
     
     private var movies: [Movie] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,7 +51,7 @@ extension MovieInfoViewController: UICollectionViewDataSource {
                     self.collectionView.reloadData()
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
                 
             }
         }
@@ -73,7 +72,7 @@ extension MovieInfoViewController: UICollectionViewDataSource {
                     }
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
                 
             }
         }
