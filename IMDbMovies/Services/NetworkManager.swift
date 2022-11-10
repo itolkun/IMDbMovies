@@ -33,7 +33,6 @@ class NetworkManager {
             do {
                 
                 let searchResult = try decoder.decode(SearchResult.self, from: data)
-                print(searchResult)
                 DispatchQueue.main.async {
                     completion(.success(searchResult))
                     
@@ -61,6 +60,34 @@ class NetworkManager {
                 completion(.success(imageData))
             }
         }
+        
+    }
+    
+    func fetchMovieInfo(by movieId: String, completion: @escaping(Result <Movie, NetworkError>) -> Void ) {
+        guard let url = URL(string: "https://www.omdbapi.com/?apikey=2d5a19e0&r=json&i=\(movieId)") else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                completion(.failure(.noData))
+                print(error?.localizedDescription ?? "No error description" )
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                
+                let movieInfo = try decoder.decode(Movie.self, from: data)
+                
+                DispatchQueue.main.async {
+                    completion(.success(movieInfo))
+                    
+                }
+            } catch let error {
+                print(error.localizedDescription)
+                completion(.failure(.decodingError))
+            }
+        }.resume()
         
     }
     

@@ -10,28 +10,19 @@ import UIKit
 class MainViewController: UICollectionViewController {
     
     private var movies: [Movie] = []
-    var photoThubnail: UIImageView!
-
+    
+    private var selectedMovie: Movie!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchMovies()
-
     }
-
     
-//     MARK: - Navigation
-
-    
-
-//     MARK: UICollectionViewDataSource
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         movies.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MovieCell
         let movie = movies[indexPath.item]
@@ -40,16 +31,14 @@ class MainViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MovieCell
-        self.photoThubnail = cell.movieImage
+        self.selectedMovie = movies[indexPath.item]
         performSegue(withIdentifier: "movieInfo", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let movieInfoVC = segue.destination as? MovieInfoViewController
-        movieInfoVC?.choosenMovieImage = self.photoThubnail
-        }
-
+        movieInfoVC?.selectedMovie = self.selectedMovie
+    }
     
 }
 
@@ -61,9 +50,8 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 
 extension MainViewController {
     func fetchMovies() {
-        
         NetworkManager.shared.fetchMovies(by: "christmas") {
-            [] result in
+            result in
             switch result {
             case .success(let searchResult):
                 self.movies = searchResult.movies
@@ -72,7 +60,7 @@ extension MainViewController {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-               
+                
             }
         }
         
