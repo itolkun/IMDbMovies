@@ -55,9 +55,7 @@ extension MainViewController {
             switch result {
             case .success(let searchResult):
                 self.movies = searchResult.movies
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
+                self.collectionView.reloadData()
             case .failure(let error):
                 print(error)
                 

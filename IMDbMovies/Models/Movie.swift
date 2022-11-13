@@ -14,12 +14,26 @@ struct Movie: Decodable {
     let type: String
     let poster: String
     
-    enum CodingKeys: String, CodingKey {
-        case title = "Title"
-        case year = "Year"
-        case imdbID = "imdbID"
-        case type = "Type"
-        case poster = "Poster"
+    init(movieData: [String: Any]) {
+        title = movieData["Title"] as? String ?? ""
+        year = movieData["Year"] as? String ?? ""
+        imdbID = movieData["imdbID"] as? String ?? ""
+        type = movieData["Type"] as? String ?? ""
+        poster = movieData["Poster"] as? String ?? ""
+    }
+    
+    static func getMovieInfo(from value: Any) -> Movie {
+        if let movieInfo = value as? [String: Any] {
+            return Movie(movieData: movieInfo)
+        }
+        return Movie(movieData: [:])
+    }
+    
+    
+    static func getMovies(from value: Any) -> [Movie] {
+        guard let movieData = value as? [[String: Any]] else { return []}
+        return movieData.map { Movie(movieData: $0) }
+        
     }
 
 }
@@ -29,12 +43,18 @@ struct SearchResult: Decodable {
     let totalResults: String
     let response: String
     
-    enum CodingKeys: String, CodingKey {
-        case movies = "Search"
-        case totalResults = "totalResults"
-        case response = "Response"
+    init (searchResult: [String: Any]) {
+        movies = Movie.getMovies(from: searchResult["Search"] ?? [])
+        totalResults = searchResult["totalResults"] as? String ?? ""
+        response = searchResult["Response"] as? String ?? ""
     }
-
+    
+    static func getSearchResult(from value: Any) -> SearchResult {
+        if let searchData = value as? [String: Any] {
+            return SearchResult(searchResult: searchData)
+        }
+        return SearchResult(searchResult: [:])
+    }
 }
 
 

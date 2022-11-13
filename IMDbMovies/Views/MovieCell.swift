@@ -17,7 +17,7 @@ class MovieCell: UICollectionViewCell {
         NetworkManager.shared.fetchMovieImage(from: movie.poster){ [weak self] result in
             switch result {
             case .success(let imageData):
-                self?.movieImage.image = UIImage(data: imageData)
+                self?.movieImage?.image = UIImage(data: imageData)
             case .failure(_):
                 self?.movieImage.image = UIImage(named: "moviePoster")
             }

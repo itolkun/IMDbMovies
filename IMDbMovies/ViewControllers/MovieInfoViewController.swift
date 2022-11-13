@@ -41,15 +41,13 @@ extension MovieInfoViewController: UICollectionViewDataSource {
     func fetchMovies() {
         NetworkManager.shared.fetchMovies(
             by: selectedMovie.title.split(
-            separator: " ").prefix(2).joined(separator: "+")
+                separator: " ").prefix(2).joined(separator: "+")
         ) {
             result in
             switch result {
             case .success(let searchResult):
                 self.movies = searchResult.movies
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
+                self.collectionView.reloadData()
             case .failure(let error):
                 print(error)
                 
@@ -79,4 +77,3 @@ extension MovieInfoViewController: UICollectionViewDataSource {
         
     }
 }
-

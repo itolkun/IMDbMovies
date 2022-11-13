@@ -9,8 +9,8 @@ import UIKit
 
 class MovieInfo: UICollectionViewCell {
     
-    @IBOutlet var imageMovie: UIImageView! 
-    
+    @IBOutlet var imageMovie: UIImageView!
+
     func configure(with movie: Movie) {
         imageMovie.image = UIImage(named: "moviePoster")
         NetworkManager.shared.fetchMovieImage(from: movie.poster){ [weak self] result in
@@ -19,7 +19,7 @@ class MovieInfo: UICollectionViewCell {
                 self?.imageMovie.image = UIImage(data: imageData)
             case .failure(let error):
                 print(error)
-                
+
             }
         }
         
