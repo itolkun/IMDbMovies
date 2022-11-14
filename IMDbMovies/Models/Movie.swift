@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movie: Decodable {
+struct Movie {
     let title: String
     let year: String
     let imdbID: String
@@ -38,7 +38,7 @@ struct Movie: Decodable {
 
 }
 
-struct SearchResult: Decodable {
+struct SearchResult {
     let movies: [Movie]
     let totalResults: String
     let response: String
